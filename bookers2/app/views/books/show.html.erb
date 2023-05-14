@@ -1,0 +1,58 @@
+<%= render "shared/success_message.html.erb" %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "shared/user_info_and_new_book.html.erb", user: @book.user, new_book: @new_book %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+
+      <h2 class="pt-3">Book detail</h2>
+      <% if current_user == @book.user %>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <%= link_to user_path(@book.user.id) do %>
+                  <%= image_tag @book.user.get_profile_image(100, 100) %>
+                  <br>
+                  <%= @book.user.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to @book.title, book_path(@book.id) %>
+              </td>
+              <td>
+                <%= @book.body %>
+              </td>
+              <td>
+                <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %>
+              </td>
+              <td>
+                <%= link_to "Destroy", book_path(@book.id), method: :delete, data: {confirm: "Are you sure to delete it? (T-T)"}, class: "btn btn-danger" %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <% else %>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <%= link_to user_path(@book.user.id) do %>
+                  <%= image_tag @book.user.get_profile_image(100, 100) %>
+                  <br>
+                  <%= @book.user.name %>
+                <% end %>
+              </td>
+              <td><%= link_to @book.title, book_path(@book.id) %> </td>
+              <td><%= @book.body %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 col-md-8 mx-auto">
+      <h1>Editing Book</h1>
+      <%= render "/shared/error_message.html.erb", obj: @book %>
+      <%= form_with model: @book, url: book_path, method: :patch do |f|%>
+        <div class="form-group">
+          <%= f.label :title, "Title" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :body, "Opinion" %>
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+        <%= f.submit "Update Book", class: "btn btn-success" %>
+      <% end %>
+
+      <%= link_to "Show", book_path(@book.id) %>
+      <span> | </span>
+      <%= link_to "Back", books_path %>
+    </div>
+  </div>
+</div>

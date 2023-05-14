@@ -1,0 +1,20 @@
+<%= render "/shared/success_message.html.erb" %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mx-auto pt-4">
+      <h1>
+        welcome to <span><i class="fas fa-book"></i></span><strong>Bookers</strong> !!
+      </h1>
+      <p>
+        In <spane><i class="fas fa-book"></i></spane><strong>Bookers</strong>,<br><br>
+        you can share and exchange your opinions , inpressions , and emotions<br><br>
+        about various books!
+      </p>
+      <div class="col-10 mx-auto">
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-block btn-sm" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-block btn-sm" %>
+      </div>
+    </div>
+  </div>
+</div>

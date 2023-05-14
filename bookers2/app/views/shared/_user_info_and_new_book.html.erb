@@ -1,0 +1,41 @@
+<!--ローカル変数としてuser, new_bookの二つがある-->
+<h2 class="pt-3">User info</h2>
+<%= image_tag user.get_profile_image(100,100) %>
+<table class="table">
+  <tbody>
+    <tr>
+      <td class="fs-4">
+        <strong>name</strong>
+      </td>
+      <td>
+        <%= content_tag :strong, user.name, class: "fs-4" %>
+      </td>
+    </tr>
+    <tr>
+      <td class="fs-4">
+        <strong>introduction</strong>
+      </td>
+      <td>
+        <%= content_tag :strong, user.introduction, class: "fs-4 text-wrap" %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to edit_user_path(user.id), class: "btn btn-block btn-outline-secondary mt-10" do %>
+<i class="fas fa-user-cog"></i>
+<% end %>
+
+<!--ここからはNewBook-->
+<h2 class="mt-4">New book</h2>
+<%= form_with model: new_book, url: books_path, method: :post do |f|%>
+  <div class="form-group">
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body, "Opinion" %>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <%= f.submit "Create Book", class: "btn btn-success" %>
+<% end %>
