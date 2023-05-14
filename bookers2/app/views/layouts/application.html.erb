@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item d-flex">
                   <%= link_to destroy_user_session_path, method: :delete , class: 'nav-link text-light' do %>
-                  <i class="fas fa-sign-out-alt" style="color: #ffffff;"></i> Log out
+                  <i class="fas fa-sign-out-alt" style="color: #ffffff;"></i> logout
                   <% end %>
                 </li>
               <% else %>
@@ -54,12 +54,12 @@
                 </li>
                 <li class="nav-item d-flex">
                   <%= link_to new_user_registration_path , class: 'nav-link text-light' do %>
-                  <i class="fas fa-user-plus" style="color: #ffffff;"></i> Sign up
+                  <i class="fas fa-user-plus" style="color: #ffffff;"></i> sign up
                   <% end %>
                 </li>
                 <li class="nav-item d-flex">
                   <%= link_to new_user_session_path , class: 'nav-link text-light' do %>
-                  <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i> Log in
+                  <i class="fas fa-sign-in-alt" style="color: #ffffff;"></i> login
                   <% end %>
                 </li>
               <% end %>
